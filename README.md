@@ -1,0 +1,2 @@
+# nvimconfig
+ mmm glorious
