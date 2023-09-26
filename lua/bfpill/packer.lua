@@ -1,8 +1,8 @@
--- This file can be loaded by calling `lua require('plugins')` from your init.vim
-
--- Only required if you have packer configured as `opt`
+---- This file can be loaded by calling `lua require('plugins')` from your init.vim
+--
+---- Only required if you have packer configured as `opt`
 vim.cmd.packadd('packer.nvim')
-
+--
 return require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
 
@@ -82,8 +82,6 @@ use("theprimeagen/harpoon")
 use("theprimeagen/refactoring.nvim")
 use("mbbill/undotree")
 use("tpope/vim-fugitive")
-use("nvim-treesitter/nvim-treesitter-context");
-
       use {
           'VonHeikemen/lsp-zero.nvim',
 	  branch = 'v1.x',
