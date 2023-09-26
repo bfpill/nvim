@@ -1,5 +1,4 @@
 require('coal').setup({
-    disable_background = true
 })
 
 function ColorMyPencils(color)
