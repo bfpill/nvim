@@ -1,9 +1,9 @@
-require('rose-pine').setup({
+require('coal').setup({
     disable_background = true
 })
 
-function ColorMyPencils(color) 
-	vim.cmd('colorscheme rose-pine')
+function ColorMyPencils(color)
+	vim.cmd('colorscheme coal')
 	vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 	vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 

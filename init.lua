@@ -4,6 +4,8 @@ require("bfpill")
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
+vim.cmd[[ hi Comment cterm=italic ]]
+
 -- set termguicolors to enable highlight groups
 vim.opt.termguicolors = true
 

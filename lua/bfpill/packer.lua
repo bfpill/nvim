@@ -24,9 +24,17 @@ return require('packer').startup(function(use)
 	  })
 	  end
 	  })
-use({ 'rose-pine/neovim', as = 'rose-pine' })
+
+use({
+    'cranberry-clockworks/coal.nvim',
+    config = function()
+        require('coal').setup()
+    end
+})
+
 use 'nvim-tree/nvim-tree.lua'
 use 'nvim-tree/nvim-web-devicons'
+
 require'nvim-web-devicons'.setup {
  -- your personnal icons can go here (to override)
  -- you can specify color or cterm_color instead of specifying both of them
@@ -77,6 +85,7 @@ use{
 			ts_update()
 			end,
 }
+
 use("nvim-treesitter/playground")
 use("theprimeagen/harpoon")
 use("theprimeagen/refactoring.nvim")
