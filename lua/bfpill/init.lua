@@ -15,7 +15,7 @@ require'nvim-web-devicons'.setup {
  };
  -- globally enable different highlight colors per icon (default to true)
  -- if set to false all icons will have the default icon's color
- color_icons = true;
+ color_icons = false;
  -- globally enable default icons (default to false)
  -- will get overriden by `get_icons` option
  default = true;
@@ -58,7 +58,7 @@ local alpha = function()
 end
 -- g:neovide_transparency should be 0 if you want to unify transparency of content and title bar.
 vim.g.neovide_transparency = 0.3
-vim.g.transparency = 0.2
+vim.g.transparency = 0.9
 vim.g.neovide_background_color = "#001021" .. alpha()
 
 autocmd('TextYankPost', {
@@ -77,7 +77,7 @@ autocmd({"BufWritePre"}, {
     pattern = "*",
     command = [[%s/\s\+$//e]],
 })
-vim.opt.guifont='Hack Nerd Font'
+--vim.opt.guifont='Hack Nerd Font'
 vim.g.netrw_browse_split = 0
 vim.g.netrw_banner = 0
 vim.g.netrw_winsize = 25

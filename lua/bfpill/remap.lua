@@ -16,6 +16,12 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
+-- This is for NvimTree switch
+vim.api.nvim_set_keymap('n', '<Leader><Tab>', '<C-w>w', { noremap = true, silent = true })
+
+vim.api.nvim_set_keymap('n', '<Leader>h', ':vsplit<CR>', { noremap = true, silent = true })
+
+
 vim.keymap.set("n", "<leader>vwm", function()
     require("vim-with-me").StartVimWithMe()
 end)

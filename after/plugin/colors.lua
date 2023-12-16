@@ -1,10 +1,12 @@
-require('coal').setup({
-})
+--require('coal').setup({
+--})
 
 function ColorMyPencils(color)
-	vim.cmd('colorscheme coal')
-	vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-	vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+    vim.cmd[[colorscheme blackboard]]
+--	vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+--	vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+
+
 
 end
 
