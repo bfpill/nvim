@@ -91,28 +91,39 @@ use("theprimeagen/harpoon")
 use("theprimeagen/refactoring.nvim")
 use("mbbill/undotree")
 use("tpope/vim-fugitive")
-      use {
-          'VonHeikemen/lsp-zero.nvim',
-	  branch = 'v1.x',
-	  requires = {
-		  -- LSP Support
-		  {'neovim/nvim-lspconfig'},
-		  {'williamboman/mason.nvim'},
-          {'williamboman/mason-lspconfig.nvim'},
---
---		  -- Autocompletion
-    	  {'hrsh7th/nvim-cmp'},
-          {'hrsh7th/cmp-nvim-lsp'},
---
-		  -- Snippets
-		  {'L3MON4D3/LuaSnip'},
-	  }
-  }
+use {
+  'VonHeikemen/lsp-zero.nvim',
+  branch = 'v1.x',
+  requires = {
+      -- LSP Support
+      {'neovim/nvim-lspconfig'},
+      {'williamboman/mason.nvim'},
+      {'williamboman/mason-lspconfig.nvim'},
 
-  use("folke/zen-mode.nvim")
-  use("github/copilot.vim")
-  use("eandrju/cellular-automaton.nvim")
-  use("laytan/cloak.nvim")
+		  -- Autocompletion
+      {'hrsh7th/nvim-cmp'},
+      {'hrsh7th/cmp-nvim-lsp'},
+
+      -- Snippets
+      {'L3MON4D3/LuaSnip'},
+  }
+}
+
+use("folke/zen-mode.nvim")
+use("github/copilot.vim")
+use("eandrju/cellular-automaton.nvim")
+use("laytan/cloak.nvim")
+use {
+
+'nvim-treesitter/nvim-treesitter',
+run = ':TSUpdate',
+requires = {
+    'nvim-treesitter/playground',
+    'p00f/nvim-ts-rainbow',
+    'JoosepAlviste/nvim-ts-context-commentstring',
+    'windwp/nvim-ts-autotag',
+}
+}
 
 end)
 

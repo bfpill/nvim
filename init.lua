@@ -1,22 +1,46 @@
-require("bfpill")
+-- Disable all error reporting
+vim.o.shortmess = vim.o.shortmess .. 'c'
+vim.opt.errorbells = false
+vim.opt.visualbell = false
 
--- Use spaces instead of tabs
-vim.opt.expandtab = true
+-- Function to safely execute any function
+local function safe_call(fn, ...)
+    local status, error_msg = pcall(fn, ...)
+    if not status then
+        -- Optionally log errors
+        -- vim.fn.writefile({tostring(error_msg)}, vim.fn.expand('~/.config/nvim/error.log'), 'a')
+    end
+end
 
--- Set the number of spaces per tab (e.g., 4 spaces)
-vim.opt.shiftwidth = 4
+-- Safely source a file
+local function safe_source(file)
+    safe_call(vim.cmd.source, file)
+end
 
+-- Safely require a module
+local function safe_require(module)
+    safe_call(require, module)
+end
 
--- disable netrw at the very start of your init.lua
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
+-- Wrap the entire Neovim startup process
+safe_call(function()
+    -- Load your real configuration
+    safe_source(vim.fn.stdpath('config') .. '/init_real.lua')
 
-vim.cmd[[ hi Comment cterm=italic ]]
-vim.cmd[[colorscheme blackboard]]
+    -- Load all plugin files
+    local plugin_dir = vim.fn.stdpath('config') .. '/after/plugin'
+    if vim.fn.isdirectory(plugin_dir) == 1 then
+        local plugin_files = vim.fn.glob(plugin_dir .. '/*.lua', false, true)
+        for _, file in ipairs(plugin_files) do
+            safe_source(file)
+        end
+    end
+end)
 
--- set termguicolors to enable highlight groups
-vim.opt.termguicolors = false
-
--- empty setup using defaults
-require("nvim-tree").setup()
-
+-- Override Neovim's error handling functions
+vim.api.nvim_create_autocmd("VimEnter", {
+    callback = function()
+        vim.fn.echoerr = function() end
+        vim.api.nvim_err_writeln = function() end
+    end
+})
